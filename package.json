@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "main": "dist/index.js",
+  "main": "dist/index.html",
   "dependencies": {
     "@apollo/client": "^3.13.1",
     "@headlessui/react": "^2.2.0",
@@ -23,7 +23,7 @@
   "scripts": {
     "start": "webpack serve",
     "dev": "webpack-dev-server",
-    "build": "npm i && webpack --mode production"
+    "build": "rm -rf dist && npm i --force && webpack"
   },
   "eslintConfig": {
     "extends": [
