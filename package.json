@@ -21,8 +21,9 @@
     "zod": "^3.24.2"
   },
   "scripts": {
+    "start": "webpack serve",
     "dev": "webpack-dev-server",
-    "build": "webpack"
+    "build": "npm i && webpack --mode production"
   },
   "eslintConfig": {
     "extends": [
