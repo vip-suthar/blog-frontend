@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   entry: "./index.tsx", // Entry file
@@ -7,11 +8,11 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "[hash].bundle.js",
     clean: true, // Clean dist folder before build
-    publicPath: "/"
+    publicPath: "/",
   },
   resolve: {
     alias: {
-      "@/*": path.resolve(__dirname, "src/*")
+      "@/*": path.resolve(__dirname, "src/*"),
     },
     extensions: [".tsx", ".ts", ".js"], // Resolve these file types
   },
@@ -24,7 +25,7 @@ module.exports = {
       },
       {
         test: /\.css$/, // Load CSS files
-        use: ["style-loader", "css-loader", 'postcss-loader'],
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/i, // Load images
@@ -36,6 +37,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html", // HTML template
     }),
+    new Dotenv(),
   ],
   devServer: {
     port: 3000,
