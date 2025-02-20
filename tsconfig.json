@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",                          // Use latest JS features
+      "module": "ESNext",                          // Use latest module system
+      "moduleResolution": "Node",                  // Proper resolution for React projects
+      "jsx": "react-jsx",                          // Enable modern JSX transformation
+      "strict": true,                               // Enable all strict type-checking options
+      "esModuleInterop": true,                      // Enables interop between CommonJS and ESModules
+      "forceConsistentCasingInFileNames": true,     // Ensure file casing consistency
+      "skipLibCheck": true,                         // Skip type checking of declaration files
+      "resolveJsonModule": true,                    // Allows importing JSON files
+      // "declaration": true,                         // No .d.ts files needed for React apps
+      "sourceMap": true,                            // Generate source maps for debugging
+      "baseUrl": ".",                           // Allow absolute imports from src/
+      "outDir": "dist",
+      "paths": {
+        "@/*": ["./src/*"]                               // Enable aliasing for cleaner imports
+      }
+    },
+    "include": ["src", "index.d.ts"],                            // Include all TypeScript files in src folder
+    "exclude": ["node_modules", "dist"]           // Exclude unnecessary folders
+  }
+  
