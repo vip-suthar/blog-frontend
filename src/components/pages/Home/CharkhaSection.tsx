@@ -5,8 +5,8 @@ interface CharkhaSectionProps {}
 
 const CharkhaSection: React.FC<CharkhaSectionProps> = ({}) => {
   return (
-    <div className="flex gap-4 mx-auto p-16">
-      <div className="flex flex-col gap-4">
+    <div className="flex flex-col-reverse md:flex-row gap-4 mx-auto p-4 md:p-8 lg:p-16">
+      <div className="flex flex-col items-center md:items-start gap-4">
         <h2 className="text-xl font-bold text-[#00364D] ">
           Charkha: A Symbol of Empowerment and Justice
         </h2>
@@ -18,11 +18,11 @@ const CharkhaSection: React.FC<CharkhaSectionProps> = ({}) => {
           progress, non-violence, and civic responsibility, weaving a future
           where constitutional values and social harmony thrive.
         </p>
-        <div className="flex gap-4">
-          <button className="w-max text-[#3D9BBD] border border-[#3D9BBD] rounded-lg px-4 py-1 mt-4 cursor-pointer">
+        <div className="w-full flex flex-col md:flex-row gap-4">
+          <button className="w-full md:w-max text-[#3D9BBD] border border-[#3D9BBD] rounded-lg px-4 py-1 mt-4 cursor-pointer">
             More about Charkha
           </button>
-          <button className="w-max text-[#D3E8F8] bg-[#055479] rounded-lg px-4 py-1 mt-4 cursor-pointer">
+          <button className="w-full md:w-max text-[#D3E8F8] bg-[#055479] rounded-lg px-4 py-1 mt-4 cursor-pointer">
             Join the movement
           </button>
         </div>

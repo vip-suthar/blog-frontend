@@ -6,7 +6,6 @@ import {
   FaFacebook,
   FaInstagram,
   FaLinkedin,
-  FaPhone,
   FaPhoneAlt,
   FaWhatsapp,
   FaYoutube,
@@ -18,8 +17,8 @@ const Footer: React.FC<FooterProps> = ({}) => {
   return (
     <footer className="relative bg-[#00364D] text-white overflow-hidden">
       <img src={FooterBg1} className="absolute w-full opacity-10" />
-      <div className="w-4/5 mx-auto flex gap-8 items-center justify-center py-8">
-        <div className="flex flex-col gap-2 w-1/2 z-1">
+      <div className="w-4/5 mx-auto flex flex-col md:flex-row gap-8 items-center justify-center py-8">
+        <div className="flex flex-col items-center md:items-start gap-2 w-full md:w-1/2 z-1">
           <img src={Logo} className="w-24" />
           <p className="text-white text-sm leading-relaxed text-justify">
             “Non-violence is the law of our species as violence is the law of
@@ -27,7 +26,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
             but that of physical might. The dignity of man requires obedience to
             a higher law – that of the spirit.”
           </p>
-          <hr className="h-1 rounded-full bg-white" />
+          <hr className="w-full h-1 rounded-full bg-white" />
           <ul className="text-white flex gap-2 mt-2">
             <li>
               <a>
@@ -52,7 +51,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
             </li>
           </ul>
         </div>
-        <div className="w-1/2 z-1">
+        <div className="w-full md:w-1/2 z-1">
           <div>
             <h4 className="text-xl text-[#A1D8E3] font-bold">
               Subscribe to get latest Updates{" "}
@@ -60,8 +59,8 @@ const Footer: React.FC<FooterProps> = ({}) => {
             <p className="text-[#D3E8F8] text-sm">
               Stay updated with our latest initiatives.
             </p>
-            <div className="w-full flex justify-between mt-4">
-              <div className="flex flex-col gap-1">
+            <div className="w-full flex flex-col sm:flex-row gap-2 mt-4">
+              <div className="w-full sm:max-w-[300px] flex flex-col gap-1">
                 <input
                   type="text"
                   placeholder="johndoe@email.com"

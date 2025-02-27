@@ -5,9 +5,9 @@ interface AboutSectionProps {}
 
 const AboutSection: React.FC<AboutSectionProps> = ({}) => {
   return (
-    <div className="flex gap-4 mx-auto p-16">
+    <div className="flex flex-col md:flex-row items-center gap-4 mx-auto p-4 md:p-8 lg:p-16">
       <img src={HomeImg2} className="w-96 h-auto object-contain" />
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col items-center md:items-start gap-4">
         <h2 className="text-xl font-bold text-[#00364D] ">
           About Satyagraha 2.0
         </h2>

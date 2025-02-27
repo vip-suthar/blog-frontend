@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import apolloClient from "@/utils/apolloClient";
+import apolloClient from "@/lib/services/apolloClient";
 import { getBlogQuery } from "@/models/Queries";
 import IndianFlagBg from "@/assets/images/indian-flag-bg.png";
 import Logo from "@/assets/images/logo.png";
@@ -13,7 +13,7 @@ const Blog: React.FC<BlogProps> = ({}) => {
 
   const [blogData, setBlogData] = useState<Blog | null>(null);
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -26,7 +26,6 @@ const Blog: React.FC<BlogProps> = ({}) => {
         },
       })
       .then((result) => {
-        console.log(result);
         setBlogData(result.data?.blog);
         setLoading(false);
       })
@@ -48,7 +47,7 @@ const Blog: React.FC<BlogProps> = ({}) => {
         </h1>
       </div>
       <div className="flex flex-col justify-center items-center gap-4 mt-8">
-        <img src={blogData?.filePath?.url} className="w-3/5  rounded-lg mb-2" />
+        <img src={blogData?.filePath?.url} className="w-3/5 h-32 object-contain rounded-lg mb-2" />
         <div className="flex flex-col gap-2 w-4/5">
           <h1 className="text-2xl font-bold text-[#055479]">
             {blogData?.title}

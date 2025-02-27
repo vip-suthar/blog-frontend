@@ -6,7 +6,7 @@ import HighlightsSection from "@/components/pages/Home/HighlightsSection";
 import CharkhaSection from "@/components/pages/Home/CharkhaSection";
 import IntentSection from "@/components/pages/Home/IntentSection";
 import ReviewsSection from "@/components/pages/Home/ReviewsSection";
-import ArticlesSection from "@/components/pages/Home/ArticlesSection";
+// import ArticlesSection from "@/components/pages/Home/ArticlesSection";
 import FaqSection from "@/components/pages/Home/FaqSection";
 import ContactFormSection from "@/components/pages/Home/ContactFormSection";
 
@@ -21,7 +21,7 @@ const Home: React.FC<HomeProps> = ({}) => {
       <CharkhaSection />
       <IntentSection />
       <ReviewsSection />
-      <ArticlesSection />
+      {/* <ArticlesSection /> */}
       <FaqSection />
       <ContactFormSection />
     </div>

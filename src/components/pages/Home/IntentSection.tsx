@@ -4,8 +4,8 @@ interface IntentSectionProps {}
 
 const IntentSection: React.FC<IntentSectionProps> = ({}) => {
   return (
-    <div className="flex bg-[#3D9BBD] p-8 m-8 mt-0 rounded-xl gap-4">
-      <div className="w-3/4">
+    <div className="flex flex-col md:flex-row bg-[#3D9BBD] p-8 m-8 mt-0 rounded-xl gap-4">
+      <div className="w-full md:w-3/4">
         <h2 className="text-xl font-bold text-[#055479]">
           Why Satyagraha 2.0 ?
         </h2>

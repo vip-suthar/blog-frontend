@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import apolloClient from "@/utils/apolloClient";
+import apolloClient from "@/lib/services/apolloClient";
 import { createQuerySubmissionMutation } from "@/models/Mutations";
 import { toast } from "react-toastify";
 
@@ -65,13 +65,13 @@ const ContactFormSection: React.FC<ContactFormSectionProps> = ({}) => {
       });
   };
   return (
-    <div className="flex justify-around p-16">
-      <div>
+    <div className="flex flex-col md:flex-row justify-around p-4 md:p-8 lg:p-16">
+      <div className="w-full md:w-1/2 flex flex-col items-center">
         <h2 className="text-xl font-bold text-[#055479]">
           Get In Touch and Explore
         </h2>
         <p className="text-gray-500">Fill out the form</p>
-        <ul className="flex flex-col gap-2 mt-4">
+        <ul className="flex flex-row flex-wrap md:flex-col gap-4 md:gap-2 mt-4">
           <li className="flex items-center gap-2">
             <div className="p-3 text-3xl text-[#055479] bg-[#BCEAFF] w-max h-max rounded-full">
               <FaGlobe />
@@ -133,7 +133,7 @@ const ContactFormSection: React.FC<ContactFormSectionProps> = ({}) => {
           </li>
         </ul>
       </div>
-      <div className="grid grid-cols-2 gap-4 p-8 shadow-lg bg-[#A5E1F3] rounded-2xl">
+      <div className="w-full md:w-1/2 grid grid-cols-2 gap-4 p-8 shadow-lg bg-[#A5E1F3] rounded-2xl">
         <div className="col-span-2 text-sm">
           <span className="text-red-500">*</span>
           &nbsp;marked fields are required

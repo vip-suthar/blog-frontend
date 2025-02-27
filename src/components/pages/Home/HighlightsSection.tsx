@@ -8,7 +8,7 @@ interface HighlightsSectionProps {}
 const HighlightsSection: React.FC<HighlightsSectionProps> = ({}) => {
   return (
     <div className="w-full bg-[#3D9BBD] px-16 py-12">
-      <ul className="text-white flex justify-between items-center gap-8">
+      <ul className="text-white flex flex-col md:flex-row justify-between items-center gap-8">
         <li className="flex items-center gap-2 w-full">
           <div className="p-3 rounded-full bg-gray-100 w-max">
             <img src={VolunteerLogo} className="w-12" />

@@ -6,8 +6,8 @@ interface ReviewsSectionProps {}
 
 const ReviewsSection: React.FC<ReviewsSectionProps> = ({}) => {
   return (
-    <div className="flex flex-col gap-4 items-center">
-      <h2 className="text-xl font-bold text-[#055479]">
+    <div className="flex flex-col gap-4 items-center py-4">
+      <h2 className="text-center text-xl font-bold text-[#055479]">
         What People Are Saying About Satyagrah 2.0
       </h2>
       <div className="flex justify-around gap-4">
@@ -37,10 +37,10 @@ const ReviewsSection: React.FC<ReviewsSectionProps> = ({}) => {
       </div>
       <span className="flex gap-2">
         <span className="w-2 h-2 rounded-full bg-[#19AAED]" />
+        {/* <span className="w-2 h-2 rounded-full bg-[#D9D9D9]" />
         <span className="w-2 h-2 rounded-full bg-[#D9D9D9]" />
         <span className="w-2 h-2 rounded-full bg-[#D9D9D9]" />
-        <span className="w-2 h-2 rounded-full bg-[#D9D9D9]" />
-        <span className="w-2 h-2 rounded-full bg-[#D9D9D9]" />
+        <span className="w-2 h-2 rounded-full bg-[#D9D9D9]" /> */}
       </span>
     </div>
   );

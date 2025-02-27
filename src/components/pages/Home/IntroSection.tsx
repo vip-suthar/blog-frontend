@@ -7,7 +7,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({}) => {
   return (
     <div className="relative">
       <span className="absolute inset-0 z-10 bg-linear-[-90deg,rgba(0,54,77,0)_0%,rgba(0,54,77,0.25)_22%,rgba(0,54,77,0.50)_34%,rgba(0,54,77,0.75)_54%,rgba(0,54,77,1)_100%]" />
-      <img src={HomeBg1} className="w-full" />
+      <img src={HomeBg1} className="w-full min-h-[50vh] object-cover" />
       <div className="absolute left-0 top-1/2 -translate-y-1/2 mt-8  max-w-sm z-20 text-white ml-[8%] flex flex-col gap-4">
         <h1 className="font-bold text-2xl">
           Leading a Non-Violent, Informed, and Inclusive Movement for a <br />
