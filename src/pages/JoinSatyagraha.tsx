@@ -1,40 +1,32 @@
-// import { useAuth0 } from "@auth0/auth0-react";
 import React, { useState } from "react";
+import IndianFlagBg from "@/assets/images/indian-flag-bg.png";
 import { Controller, useForm } from "react-hook-form";
-import {
-  FaCheckCircle,
-  FaEnvelope,
-  FaGlobe,
-  FaInstagram,
-  FaPhoneAlt,
-  FaWhatsapp,
-} from "react-icons/fa";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import apolloClient from "@/lib/services/apolloClient";
 import { createQuerySubmissionMutation } from "@/models/Mutations";
 import { toast } from "react-toastify";
+import { FaCheckCircle } from "react-icons/fa";
 
-interface ContactFormSectionProps {}
+interface JoinSatyagrahaProps {}
 
 type queryType = {
   name: string;
   email: string;
-  message: string;
+  message?: string;
 };
 
-const ContactFormSection: React.FC<ContactFormSectionProps> = ({}) => {
+const JoinSatyagraha: React.FC<JoinSatyagrahaProps> = ({}) => {
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
   const schema = z.object({
     name: z.string().min(1, "Name should not be empty"),
     email: z.string().min(1, "Email should not be empty").email(),
-    message: z.string().min(1, "Message should not be empty"),
+    message: z.string().optional(),
   });
   const defaultValues = {
     name: "",
     email: "",
-    message: "",
   };
   const {
     control,
@@ -66,74 +58,15 @@ const ContactFormSection: React.FC<ContactFormSectionProps> = ({}) => {
       });
   };
   return (
-    <div className="flex flex-col md:flex-row justify-around p-4 md:p-8 lg:p-16">
-      <div className="w-full md:w-1/2 flex flex-col items-center">
-        <h2 className="text-xl font-bold text-[#055479]">
-          Get In Touch and Explore
-        </h2>
-        <p className="text-gray-500">Fill out the form</p>
-        <ul className="flex flex-row flex-wrap md:flex-col gap-4 md:gap-2 mt-4">
-          <li className="flex items-center gap-2">
-            <div className="p-3 text-3xl text-[#055479] bg-[#BCEAFF] w-max h-max rounded-full">
-              <FaGlobe />
-            </div>
-            <div className="flex flex-col gap-1">
-              <h4 className="text-base font-bold leading-normal pb-0 mb-0">
-                Have Queries?
-              </h4>
-              <small className="text-gray-700 text-xs">Chat with us</small>
-            </div>
-          </li>
-          <li className="flex items-center gap-2">
-            <div className="p-3 text-3xl text-[#055479] bg-[#BCEAFF] w-max h-max rounded-full">
-              <FaPhoneAlt />
-            </div>
-            <div className="flex flex-col gap-1">
-              <h4 className="text-base font-bold leading-normal pb-0 mb-0">
-                Mobile Number
-              </h4>
-              <small className="text-gray-700 text-xs">+41 87541258</small>
-            </div>
-          </li>
-          <li className="flex items-center gap-2">
-            <div className="p-3 text-3xl text-[#055479] bg-[#BCEAFF] w-max h-max rounded-full">
-              <FaWhatsapp />
-            </div>
-            <div className="flex flex-col gap-1">
-              <h4 className="text-base font-bold leading-normal pb-0 mb-0">
-                Chat on Whatsapp
-              </h4>
-              <small className="text-gray-700 text-xs">
-                Click for WhatsApp Message
-              </small>
-            </div>
-          </li>
-          <li className="flex items-center gap-2">
-            <div className="p-3 text-3xl text-[#055479] bg-[#BCEAFF] w-max h-max rounded-full">
-              <FaEnvelope />
-            </div>
-            <div className="flex flex-col gap-1">
-              <h4 className="text-base font-bold leading-normal pb-0 mb-0">
-                Email Address
-              </h4>
-              <small className="text-gray-700 text-xs">
-                gggggggg@gmail.com
-              </small>
-            </div>
-          </li>
-          <li className="flex items-center gap-2">
-            <div className="p-3 text-3xl text-[#055479] bg-[#BCEAFF] w-max h-max rounded-full">
-              <FaInstagram />
-            </div>
-            <div className="flex flex-col gap-1">
-              <h4 className="text-base font-bold leading-normal pb-0 mb-0">
-                Instagram
-              </h4>
-              <small className="text-gray-700 text-xs">satyagrah</small>
-            </div>
-          </li>
-        </ul>
+    <div>
+      <div className="relative">
+        <span className="absolute inset-0 bg-[#055479]" />
+        <img src={IndianFlagBg} className="w-full opacity-90" />
+        <h1 className="absolute bottom-8 left-8 text-2xl font-bold text-white">
+          Satyagraha 2.0
+        </h1>
       </div>
+
       {submitted ? (
         <div className="flex flex-col gap-4 items-center justify-center sm:p-5 w-full md:w-1/2 p-8 shadow-lg bg-[#A5E1F3] rounded-2xl">
           <div className="w-max rounded-full text-green-400 bg-green-100 flex items-center justify-center mx-auto mb-3.5">
@@ -141,7 +74,7 @@ const ContactFormSection: React.FC<ContactFormSectionProps> = ({}) => {
             <span className="sr-only">Success</span>
           </div>
           <p className="mb-4 text-lg font-semibold text-gray-900">
-            Successfully submitted query.
+            Thanks for showing interest in joining the noble cause.
           </p>
           <button
             type="button"
@@ -154,7 +87,10 @@ const ContactFormSection: React.FC<ContactFormSectionProps> = ({}) => {
           </button>
         </div>
       ) : (
-        <div id="contact-us" className="w-full md:w-1/2 grid grid-cols-2 gap-4 p-8 shadow-lg bg-[#A5E1F3] rounded-2xl">
+        <div
+          id="contact-us"
+          className="w-full max-w-md mx-auto my-4 grid grid-cols-2 gap-4 p-8 shadow-lg bg-[#A5E1F3] rounded-2xl"
+        >
           <div className="col-span-2 text-sm">
             <span className="text-red-500">*</span>
             &nbsp;marked fields are required
@@ -179,10 +115,6 @@ const ContactFormSection: React.FC<ContactFormSectionProps> = ({}) => {
               <p className="text-sm text-red-400">{errors["name"].message}</p>
             )}
           </div>
-          {/* <div className="flex flex-col gap-2">
-          <label className="text-[#00364D] font-bold">Mobile Number</label>
-          <input placeholder="Number" className="p-2 rounded-lg bg-[#D3E8F8]" />
-        </div> */}
           <div className="col-span-2 flex flex-col gap-2">
             <label className="text-[#00364D] font-bold">
               Email Address<sup className="text-red-500">*</sup>
@@ -206,7 +138,7 @@ const ContactFormSection: React.FC<ContactFormSectionProps> = ({}) => {
           </div>
           <div className="col-span-2 flex flex-col gap-2">
             <label className="text-[#00364D] font-bold">
-              Additional Message<sup className="text-red-500">*</sup>
+              Tell us more about your inspiration
             </label>
             <Controller
               name="message"
@@ -221,9 +153,7 @@ const ContactFormSection: React.FC<ContactFormSectionProps> = ({}) => {
               )}
             />
             {errors["message"] && (
-              <p className="text-sm text-red-400">
-                {errors["message"].message}
-              </p>
+              <p className="text-sm text-red-400">{errors["message"].message}</p>
             )}
           </div>
           <div className="col-span-2 flex items-center justify-center">
@@ -241,4 +171,4 @@ const ContactFormSection: React.FC<ContactFormSectionProps> = ({}) => {
   );
 };
 
-export default ContactFormSection;
+export default JoinSatyagraha;

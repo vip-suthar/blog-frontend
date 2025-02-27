@@ -29,6 +29,7 @@ const ArticlesSection: React.FC<ArticlesSectionProps> = ({}) => {
       })
       .then((result) => {
         setBlogsList(result.data?.blogs || []);
+      }).finally(()=> {
         setIsLoading(false);
       });
   }, []);
